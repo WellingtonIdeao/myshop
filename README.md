@@ -1,0 +1,1 @@
+# Django-by-Example-MyShop
