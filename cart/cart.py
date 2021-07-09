@@ -1,5 +1,5 @@
 import myshop.settings.development as settings
-from myshop.shop.models import Product
+from shop.models import Product
 from decimal import Decimal
 
 
