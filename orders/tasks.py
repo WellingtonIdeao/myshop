@@ -1,9 +1,9 @@
-from celery import task
+# from celery import task
 from .models import Order
 from django.core.mail import send_mail
 
 
-@task
+# @task
 def order_created(order_id):
     """
     Task to send an e-mail notification when an order is
