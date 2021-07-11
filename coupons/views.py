@@ -8,7 +8,7 @@ from .models import Coupon
 @require_POST
 def coupon_apply(request):
     """
-        find a valid coupon in database. if find it, to place coupon id on request.session,
+        find a valid coupon in database to apply. if find it, to place applied coupon id on request.session,
         otherwise place in the request.session a coupon_id = None
         :return redirect to cart detail view
     """
@@ -18,8 +18,8 @@ def coupon_apply(request):
         code = form.cleaned_data['code']
         try:
             coupon = Coupon.objects.get(code__iexact=code,
-                                        valid_to__lte=now,
-                                        valid_from__gte=now,
+                                        valid_from__lte=now,
+                                        valid_to__gte=now,
                                         active=True
                                         )
             request.session['coupon_id'] = coupon.id
